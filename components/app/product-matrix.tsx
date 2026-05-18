@@ -30,7 +30,7 @@ const STATUS_LABELS: Record<ProductStatus, string> = {
 export function ProductMatrix() {
   return (
     <TooltipProvider delayDuration={150}>
-      <div className="overflow-x-auto rounded-xl border border-border bg-card p-1.5 shadow-soft">
+      <div className="overflow-x-auto rounded-xl border border-border bg-card p-1.5 card-extruded">
         <table
           className="w-full min-w-[820px] border-separate border-spacing-1.5 text-sm"
           role="grid"
@@ -38,11 +38,11 @@ export function ProductMatrix() {
         >
           <thead>
             <tr>
-              <th className="sticky left-0 z-10 w-40 bg-card px-3 text-left font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+              <th className="sticky left-0 z-10 w-40 bg-card px-3 text-left font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 Product
               </th>
               {JURISDICTIONS.map((j) => (
-                <th key={j.code} className="px-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+                <th key={j.code} className="px-2 text-center font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <span className="inline-flex items-center gap-1">{j.flag}<span>{j.code}</span></span>
@@ -51,7 +51,7 @@ export function ProductMatrix() {
                   </Tooltip>
                 </th>
               ))}
-              <th className="px-2 text-right font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Owner</th>
+              <th className="px-2 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Owner</th>
             </tr>
           </thead>
           <tbody>
@@ -64,8 +64,8 @@ export function ProductMatrix() {
               >
                 <td className="sticky left-0 z-10 rounded-md bg-card px-3 py-2.5">
                   <Link href={`/products/${p.id}`} className="block group">
-                    <div className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">{p.name}</div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">{p.category}</div>
+                    <div className="text-sm font-semibold text-foreground transition-colors group-hover:text-primary">{p.name}</div>
+                    <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{p.category}</div>
                   </Link>
                 </td>
                 {p.cells.map((cell) => (
@@ -75,24 +75,24 @@ export function ProductMatrix() {
                         <Link
                           href={`/products/${p.id}`}
                           className={cn(
-                            "flex h-11 flex-col items-center justify-center rounded-md border px-1 font-mono text-[10px] uppercase tracking-[0.08em] transition-all",
+                            "flex h-11 flex-col items-center justify-center rounded-md border px-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] transition-all",
                             STATUS_STYLES[cell.status]
                           )}
                           aria-label={`${p.name} in ${cell.jurisdiction}: ${STATUS_LABELS[cell.status]}`}
                         >
                           <span>{STATUS_LABELS[cell.status]}</span>
                           {cell.obligations > 0 ? (
-                            <span className="mt-0.5 text-[9px] opacity-70">{cell.obligations} obl.</span>
+                            <span className="mt-0.5 text-[9px] font-medium opacity-70">{cell.obligations} obl.</span>
                           ) : null}
                         </Link>
                       </TooltipTrigger>
                       <TooltipContent className="max-w-xs">
-                        <div className="font-medium text-foreground">{p.name} · {cell.jurisdiction}</div>
-                        <div className="mt-1 text-xs text-muted-foreground">{STATUS_LABELS[cell.status]}</div>
+                        <div className="font-semibold text-foreground">{p.name} · {cell.jurisdiction}</div>
+                        <div className="mt-1 text-xs font-medium text-muted-foreground">{STATUS_LABELS[cell.status]}</div>
                         {cell.license ? (
-                          <div className="mt-1 font-mono text-[10px] text-foreground/90">{cell.license}</div>
+                          <div className="mt-1 font-mono text-[10px] font-medium text-foreground/90">{cell.license}</div>
                         ) : null}
-                        <div className="mt-1.5 font-mono text-[10px] text-muted-foreground">
+                        <div className="mt-1.5 font-mono text-[10px] font-medium text-muted-foreground">
                           Reviewed {fmtDate(cell.lastReviewed)} · {cell.obligations} open obligations
                         </div>
                       </TooltipContent>
@@ -119,5 +119,3 @@ export function ProductMatrix() {
     </TooltipProvider>
   );
 }
-EOF
-echo "matrix written"
