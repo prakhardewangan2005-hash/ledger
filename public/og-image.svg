@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <radialGradient id="aurora" cx="20%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#5B4FE5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#5B4FE5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aurora2" cx="85%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0E0E14"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#aurora)"/>
+  <rect width="1200" height="630" fill="url(#aurora2)"/>
+
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="48" height="48" rx="12" fill="#5B4FE5"/>
+    <path d="M11 18h26M11 26h26M11 34h15" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="40" cy="34" r="3.8" fill="white"/>
+    <text x="62" y="32" font-family="Georgia, serif" font-style="italic" font-size="32" fill="#FAFAF7">Ledger</text>
+  </g>
+
+  <text x="80" y="340" font-family="-apple-system, system-ui, sans-serif" font-size="68" font-weight="500" fill="#FAFAF7" letter-spacing="-1.5">Regulatory operations,</text>
+  <text x="80" y="420" font-family="Georgia, serif" font-style="italic" font-size="72" fill="#9F8FFF" letter-spacing="-1">at the speed of product.</text>
+
+  <text x="80" y="520" font-family="ui-monospace, monospace" font-size="20" fill="#9CA3AF" letter-spacing="3" text-transform="uppercase">MiCA · GENIUS · MAS · FCA · VARA · FSA · SFC · FINMA</text>
+</svg>
